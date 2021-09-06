@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+cd data/
+
+# We download the datasets 
+python generate_adult.py adult.h5
+python generate_credit.py credit.h5
+python generate_glass.py glass.h5
+python generate_heart.py heart.h5
+python generate_letter.py letter.h5
+python generate_tictactoe.py tictactoe.h5
+python generate_usvotes.py usvotes.h5
+python generate_wdbc.py wdbc.h5
+
+python generate_torchvision.py MNIST mnist.h5
+python generate_torchvision.py FashionMNIST fashion.h5
+
+# We flatten the inputs
+python get_flat.py adult.h5 adult.h5
+python get_flat.py credit.h5 credit.h5
+python get_flat.py glass.h5 glass.h5
+python get_flat.py heart.h5 heart.h5
+python get_flat.py letter.h5 letter.h5
+python get_flat.py tictactoe.h5 tictactoe.h5
+python get_flat.py usvotes.h5 usvotes.h5
+python get_flat.py wdbc.h5 wdbc.h5
+python get_flat.py mnist.h5 mnist.h5
+python get_flat.py fashion.h5 fashion.h5
+
+# We transform the labels into -1/+1
+python get_binary.py adult.h5 adult.h5
+python get_binary.py credit.h5 credit.h5
+python get_binary.py glass.h5 glass.h5
+python get_binary.py heart.h5 heart.h5
+python get_binary.py tictactoe.h5 tictactoe.h5
+python get_binary.py usvotes.h5 usvotes.h5
+python get_binary.py wdbc.h5 wdbc.h5
+
+# We get only two labels for the multi-class datasets
+# and we transform the labels into -1/+1
+python get_2_label.py mnist.h5 mnist_1_7.h5 1 7
+python get_2_label.py mnist.h5 mnist_4_9.h5 4 9
+python get_2_label.py mnist.h5 mnist_5_6.h5 5 6
+
+python get_2_label.py letter.h5 letter_a_b.h5 0 1
+python get_2_label.py letter.h5 letter_d_o.h5 3 14
+python get_2_label.py letter.h5 letter_o_q.h5 14 16
+
+python get_2_label.py fashion.h5 fashion_co_sh.h5 4 6
+python get_2_label.py fashion.h5 fashion_sa_bo.h5 5 9
+python get_2_label.py fashion.h5 fashion_to_pu.h5 0 2
+
+# We shorten the big datasets for MinCq
+python get_short.py adult.h5 adult_short.h5
+python get_short.py mnist_1_7.h5 mnist_1_7_short.h5
+python get_short.py mnist_4_9.h5 mnist_4_9_short.h5
+python get_short.py mnist_5_6.h5 mnist_5_6_short.h5
+python get_short.py fashion_to_pu.h5 fashion_to_pu_short.h5
+python get_short.py fashion_sa_bo.h5 fashion_sa_bo_short.h5
+python get_short.py fashion_co_sh.h5 fashion_co_sh_short.h5
+
+cd ../
