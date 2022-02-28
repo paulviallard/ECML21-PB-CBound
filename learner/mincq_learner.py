@@ -51,8 +51,9 @@ class MinCqLearner(BaseEstimator, ClassifierMixin):
 
         # We define Program 1
         nb_voter = len(self.mv.post)
+        nb_example = X.shape[0]
 
-        M = (1.0/nb_voter)*(out.T@out)
+        M = (1.0/nb_example)*(out.T@out)
         m = np.mean(y*out, axis=0)
         a = (1/nb_voter)*np.sum(M, axis=0)
 
