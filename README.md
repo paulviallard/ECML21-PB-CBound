@@ -39,6 +39,7 @@ The code was tested on Python 3.9.1 with the packages
 * seaborn (0.11.2)
 * torch (1.9.0)
 * torchvision (0.10.0)
+* scipy (1.7.1)
 
 These dependencies can be installed (using pip) with the following command.
-> pip install cvxopt==1.2.6 cvxpy==1.1.14 h5py==3.4.0 matplotlib==3.4.3 numpy==1.21.2 pandas==1.3.2  requests==2.26.0 scikit_learn==0.24.2 seaborn==0.11.2 torch==1.9.0 torchvision==0.10.0
+> pip install cvxopt==1.2.6 cvxpy==1.1.14 h5py==3.4.0 matplotlib==3.4.3 numpy==1.21.2 pandas==1.3.2  requests==2.26.0 scikit_learn==0.24.2 seaborn==0.11.2 torch==1.9.0 torchvision==0.10.0 scipy==1.7.1
